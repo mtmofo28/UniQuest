@@ -48,25 +48,35 @@ jobs:
       run: flutter clean
       
     - name: Build APK
-      run: flutter build apk --release -v
+      run: flutter build apk --release
+    
+    - name: Sign APK manually
+      run: |
+        cd android
+        $ANDROID_HOME/build-tools/*/apksigner sign \
+          --ks app/upload-keystore.jks \
+          --ks-key-alias upload \
+          --ks-pass pass:uniquest2025 \
+          --key-pass pass:uniquest2025 \
+          --out ../build/app/outputs/flutter-apk/app-release-signed.apk \
+          ../build/app/outputs/flutter-apk/app-release.apk
     
     - name: Verify APK signature
       run: |
-        ls -lh build/app/outputs/flutter-apk/app-release.apk
-        $ANDROID_HOME/build-tools/*/apksigner verify --print-certs build/app/outputs/flutter-apk/app-release.apk || echo "APK IS NOT SIGNED!"
-        unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i "meta-inf"
+        ls -lh build/app/outputs/flutter-apk/app-release-signed.apk
+        $ANDROID_HOME/build-tools/*/apksigner verify --print-certs build/app/outputs/flutter-apk/app-release-signed.apk
       
     - name: Upload APK to Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: app-release
-        path: build/app/outputs/flutter-apk/app-release.apk
+        path: build/app/outputs/flutter-apk/app-release-signed.apk
     
     - name: Create GitHub Release
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v1
       with:
-        files: build/app/outputs/flutter-apk/app-release.apk
+        files: build/app/outputs/flutter-apk/app-release-signed.apk
         tag_name: v${{ github.run_number }}
         name: UniQuest v${{ github.run_number }}
         body: |
