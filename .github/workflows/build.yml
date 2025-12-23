@@ -50,6 +50,12 @@ jobs:
     - name: Build APK
       run: flutter build apk --release
     
+    - name: Zipalign APK
+      run: |
+        ZIPALIGN=$(ls -d $ANDROID_HOME/build-tools/*/zipalign | sort | tail -n 1)
+        echo "Using zipalign: $ZIPALIGN"
+        $ZIPALIGN -v 4 build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/app-release-aligned.apk
+
     - name: Sign APK manually
       run: |
         APKSIGNER=$(ls -d $ANDROID_HOME/build-tools/*/apksigner | sort | tail -n 1)
@@ -60,7 +66,7 @@ jobs:
           --ks-pass pass:uniquest2025 \
           --key-pass pass:uniquest2025 \
           --out build/app/outputs/flutter-apk/app-release-signed.apk \
-          build/app/outputs/flutter-apk/app-release.apk
+          build/app/outputs/flutter-apk/app-release-aligned.apk
     
     - name: Verify APK signature
       run: |
