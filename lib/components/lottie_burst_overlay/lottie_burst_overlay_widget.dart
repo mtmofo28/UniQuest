@@ -42,7 +42,7 @@ class LottieBurstOverlay extends StatefulWidget {
     overlay.insert(overlayEntry);
 
     // Auto-remove after animation completes
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       overlayEntry.remove();
     });
   }
@@ -70,7 +70,7 @@ class LottieBurstOverlay extends StatefulWidget {
     overlay.insert(overlayEntry);
 
     // Auto-remove after animation completes
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       overlayEntry.remove();
     });
   }
@@ -98,7 +98,7 @@ class LottieBurstOverlay extends StatefulWidget {
     overlay.insert(overlayEntry);
 
     // Auto-remove after animation completes
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       overlayEntry.remove();
     });
   }

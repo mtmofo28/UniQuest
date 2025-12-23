@@ -42,34 +42,22 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: const Color(0xFF1E1E1E),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: SafeArea(
-          child: AppBar(
-            backgroundColor: const Color(0xFF1E1E1E),
-            automaticallyImplyLeading: false,
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF1E1E1E),
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Settings',
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                fontFamily: 'Feather',
+                color: const Color(0xFFFFBD59),
+                fontSize: 32.0,
+                letterSpacing: 0.0,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
         actions: const [],
-        flexibleSpace: FlexibleSpaceBar(
-          title: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Text(
-              'Settings ',
-              style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Feather',
-                    color: const Color(0xFFFFBD59),
-                    fontSize: 34.0,
-                    letterSpacing: 0.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          centerTitle: false,
-          expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-        ),
+        centerTitle: false,
         elevation: 0.0,
-          ),
-        ),
       ),
       body: Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -86,7 +74,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
               child: Text(
                 'Please evaluate your options below.',
                 style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -102,7 +91,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               scrollDirection: Axis.vertical,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -142,7 +132,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -182,7 +173,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -228,7 +220,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'App Versions',
                     style: FlutterFlowTheme.of(context).titleLarge.override(
@@ -239,7 +232,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                   child: FutureBuilder<List<ProfilesRow>>(
                     future: ProfilesTable().querySingleRow(
                       queryFn: (q) => q.eqOrNull(
@@ -308,7 +302,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               ],
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
               child: Text(
                 'v0.0.1',
                 style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -319,7 +314,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   GoRouter.of(context).prepareAuthEvent();
@@ -331,7 +327,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 text: 'Log Out',
                 options: FFButtonOptions(
                   height: 50.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      24.0, 0.0, 24.0, 0.0),
                   iconPadding:
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: const Color(0xFF1E1E1E),

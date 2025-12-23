@@ -76,8 +76,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 30.0, 0.0, 0.0),
                     child: Container(
                       width: 200.0,
                       height: 200.0,
@@ -423,8 +423,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 60.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         await ProfilesTable().update(
@@ -443,11 +443,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         if (context.mounted) {
                           LottieBurstOverlay.showCentered(
                             context: context,
-                            lottieAsset: 'assets/jsons/businessman_rocket.lottie',
+                            lottieAsset:
+                                'assets/jsons/businessman_rocket.lottie',
                           );
-                          
+
                           // Wait for animation to be visible before navigating
-                          await Future.delayed(const Duration(milliseconds: 1200));
+                          await Future.delayed(
+                              const Duration(milliseconds: 1800));
                         }
 
                         if (context.mounted) {
@@ -460,8 +462,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         height: 50.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
