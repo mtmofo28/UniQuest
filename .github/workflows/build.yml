@@ -53,7 +53,8 @@ jobs:
     - name: Verify APK signature
       run: |
         ls -lh build/app/outputs/flutter-apk/app-release.apk
-        file build/app/outputs/flutter-apk/app-release.apk
+        $ANDROID_HOME/build-tools/*/apksigner verify --print-certs build/app/outputs/flutter-apk/app-release.apk || echo "APK IS NOT SIGNED!"
+        unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i "meta-inf"
       
     - name: Upload APK to Artifacts
       uses: actions/upload-artifact@v4
