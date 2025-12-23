@@ -44,8 +44,8 @@ jobs:
     - name: Get dependencies
       run: flutter pub get
     
-    - name: Clear Gradle cache
-      run: cd android && ./gradlew clean
+    - name: Clear Flutter cache
+      run: flutter clean
       
     - name: Build APK
       run: flutter build apk --release -v
