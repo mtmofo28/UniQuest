@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -70,15 +69,10 @@ class _EmailConfirmWidgetState extends State<EmailConfirmWidget>
       ),
     });
 
-    // Auto-redirect after 3 seconds
+    // Auto-redirect after 3 seconds to login
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        // Check if user is logged in and redirect accordingly
-        if (loggedIn) {
-          context.goNamed('Home');
-        } else {
-          context.goNamed('Welcome');
-        }
+        context.goNamed('Welcome');
       }
     });
   }
@@ -157,7 +151,7 @@ class _EmailConfirmWidgetState extends State<EmailConfirmWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 24.0),
                           child: Text(
-                            'Your email has been successfully verified!\n\nRedirecting you to the app...',
+                            'Your email has been successfully verified!\n\nYou can now log in to your account.',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyLarge
@@ -172,14 +166,9 @@ class _EmailConfirmWidgetState extends State<EmailConfirmWidget>
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            // Check if user is logged in and redirect accordingly
-                            if (loggedIn) {
-                              context.goNamed('Home');
-                            } else {
-                              context.goNamed('Welcome');
-                            }
+                            context.goNamed('Welcome');
                           },
-                          text: 'Continue to App',
+                          text: 'Continue to Login',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 50.0,
