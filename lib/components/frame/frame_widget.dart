@@ -83,7 +83,7 @@ class _FrameWidgetState extends State<FrameWidget> {
           if (context.mounted) {
             LottieBurstOverlay.showCentered(
               context: context,
-              lottieAsset: 'assets/jsons/black_rainbow_cat.lottie',
+              lottieAsset: 'assets/jsons/black rainbow cat.json',
             );
           }
           await showDialog(

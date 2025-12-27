@@ -548,8 +548,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             width: 44.0,
                                                             height: 44.0,
                                                             child: Lottie.asset(
-                                                              'assets/jsons/fire.lottie',
+                                                              'assets/jsons/Fire.json',
                                                               fit: BoxFit.contain,
+                                                              repeat: true,
                                                             ),
                                                           )
                                                         else

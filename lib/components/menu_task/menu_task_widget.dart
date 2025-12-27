@@ -268,7 +268,7 @@ class _MenuTaskWidgetState extends State<MenuTaskWidget> {
                     if (context.mounted) {
                       LottieBurstOverlay.showCentered(
                         context: context,
-                        lottieAsset: 'assets/jsons/confetti.lottie',
+                        lottieAsset: 'assets/jsons/Confetti.json',
                         size: 400.0,
                       );
                     }

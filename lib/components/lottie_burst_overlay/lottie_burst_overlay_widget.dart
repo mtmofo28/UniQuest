@@ -20,7 +20,7 @@ class LottieBurstOverlay extends StatefulWidget {
   static void showAtPosition({
     required BuildContext context,
     required Offset position,
-    String lottieAsset = 'assets/jsons/confetti.lottie',
+    String lottieAsset = 'assets/jsons/Confetti.json',
     double size = 300.0,
   }) {
     final overlay = Overlay.of(context);
@@ -50,7 +50,7 @@ class LottieBurstOverlay extends StatefulWidget {
   /// Show burst at center of screen
   static void showCentered({
     required BuildContext context,
-    String lottieAsset = 'assets/jsons/confetti.lottie',
+    String lottieAsset = 'assets/jsons/Confetti.json',
     double size = 400.0,
   }) {
     final overlay = Overlay.of(context);
@@ -78,7 +78,7 @@ class LottieBurstOverlay extends StatefulWidget {
   /// Show fullscreen burst
   static void showFullscreen({
     required BuildContext context,
-    String lottieAsset = 'assets/jsons/confetti.lottie',
+    String lottieAsset = 'assets/jsons/Confetti.json',
   }) {
     final overlay = Overlay.of(context);
     late OverlayEntry overlayEntry;

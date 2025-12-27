@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'loadinpage_model.dart';
 export 'loadinpage_model.dart';
 
@@ -35,10 +36,20 @@ class _LoadinpageWidgetState extends State<LoadinpageWidget>
 
   final animationsMap = <String, AnimationInfo>{};
 
+  // Lottie compositions for preloading
+  LottieComposition? _rocketComposition;
+  LottieComposition? _fireComposition;
+  LottieComposition? _confettiComposition;
+  LottieComposition? _businessmanComposition;
+  LottieComposition? _rainbowCatComposition;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => LoadinpageModel());
+
+    // Precache assets to prevent flickering
+    _precacheAssets();
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -130,6 +141,45 @@ class _LoadinpageWidgetState extends State<LoadinpageWidget>
         ],
       ),
     });
+  }
+
+  Future<void> _precacheAssets() async {
+    // Precache logo image
+    try {
+      await precacheImage(
+        const AssetImage('assets/images/app_launcher_icon.png'),
+        context,
+      );
+    } catch (e) {
+      debugPrint('❌ Error preloading logo: $e');
+    }
+
+    // Precache Lottie animations used throughout the app
+    try {
+      _rocketComposition = await AssetLottie(
+        'assets/jsons/Rocket_in_space.json',
+      ).load();
+
+      _fireComposition = await AssetLottie(
+        'assets/jsons/Fire.json',
+      ).load();
+
+      _confettiComposition = await AssetLottie(
+        'assets/jsons/Confetti.json',
+      ).load();
+
+      _businessmanComposition = await AssetLottie(
+        'assets/jsons/Businessman flies up with rocket.json',
+      ).load();
+
+      _rainbowCatComposition = await AssetLottie(
+        'assets/jsons/black rainbow cat.json',
+      ).load();
+
+      debugPrint('✅ All Lottie animations preloaded successfully');
+    } catch (e) {
+      debugPrint('❌ Error preloading Lottie: $e');
+    }
   }
 
   @override

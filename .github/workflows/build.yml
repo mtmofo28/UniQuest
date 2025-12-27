@@ -46,6 +46,9 @@ jobs:
     
     - name: Clear Flutter cache
       run: flutter clean
+    
+    - name: Generate launcher icons
+      run: flutter pub run flutter_launcher_icons:main
       
     - name: Build APK
       run: flutter build apk --release

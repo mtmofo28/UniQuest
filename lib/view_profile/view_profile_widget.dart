@@ -453,10 +453,11 @@ class _ViewProfileWidgetState extends State<ViewProfileWidget>
                                                       children: [
                                                         if (streakProfilesRow!.taskStreak! >= 1)
                                                           Lottie.asset(
-                                                            'assets/jsons/fire.lottie',
+                                                            'assets/jsons/Fire.json',
                                                             width: 44.0,
                                                             height: 44.0,
                                                             fit: BoxFit.contain,
+                                                            repeat: true,
                                                           )
                                                         else
                                                           const FaIcon(

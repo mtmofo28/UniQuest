@@ -444,7 +444,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           LottieBurstOverlay.showCentered(
                             context: context,
                             lottieAsset:
-                                'assets/jsons/businessman_rocket.lottie',
+                                'assets/jsons/Businessman flies up with rocket.json',
                           );
 
                           // Wait for animation to be visible before navigating
